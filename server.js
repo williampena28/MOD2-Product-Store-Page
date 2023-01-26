@@ -22,12 +22,6 @@ mongoose.connection.once('open', () =>
     console.log('Connected to mongo');
 });
 
-//
-// const params = new Proxy(new URLSearchParams(window.location.search), 
-// {
-//     get: (searchParams, prop) => searchParams.get(prop),
-// });
-
 //display all products in the collection
 app.get('/get_products', async (req, res) =>
 {
@@ -38,14 +32,10 @@ app.get('/get_products', async (req, res) =>
 //display the specific product with the specified id
 app.get('/get_specific_product/:product_id', async (req, res) =>
 {
-    let response = await MyProduct.find({})
-    response.forEach((object) =>
-    {
-        if(object._id == req.params.product_id)
-        {
-            res.json(object);
-        }
-    })
+    let id = req.params.product_id;
+
+    let response = await MyProduct.findById(id);
+    res.send(response);
 });
 
 app.post('/create_product', async (req, res) =>
@@ -55,10 +45,11 @@ app.post('/create_product', async (req, res) =>
     res.send(newProduct);
 });
 
-// app.delete('/delete_product/' (req, res) =>
-// {
-
-// });
+app.delete('/delete_product', async (req, res) =>
+{
+    let response = await MyProduct.findByIdAndDelete();
+    res.send("DELETE request Called");
+});
 
 // app.put('/update_product', async (req, res) =>
 // {

@@ -27,10 +27,15 @@ const getProductData = async () =>
         {
             let hTag = document.createElement('h3');
             hTag.innerHTML = object.name;
-
+            hTag.id = object._id
             productContainerElement.appendChild(hTag);
+            hTag.addEventListener('click', () =>
+            {
+                console.log(event.target);
+                window.location.href= `./SINGLE_PRODUCT/?idInQuery=${event.target.id}`;
+            })
         })
     })
 }
 
-getProductData();
+getProductData()
