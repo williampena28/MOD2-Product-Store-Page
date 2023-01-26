@@ -6,9 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
-    <script src="./idnex.js" defer></script>
+    <script src="./index.js" defer></script>
 </head>
 <body>
     <h1>*Create form here*</h1>
+    <div id="create-product-container">
+        <p id="upload-product-status"></p>
+        <h3>Add product here:</h3>
+        <div class="input-container">
+            <label for="name-input">Name</label>
+            <input type="text" id="name-input"/>
+        </div>
+        <div class="input-container">
+            <label for="price-input">Price</label>
+            <input type="text" id="price-input"/>
+        </div>
+        <div class="input-container">
+            <label for="inventory-input">Inventory</label>
+            <input type="number" id="inventory-input"/>
+        </div>
+        <div class="input-container">
+            <label for="next-delivery">Next Delivery</label>
+            <input type="text" id="next-delivery-input"/>
+        </div>
+        <button id="submit-product-button">Create Product</button>
+    </div>
 </body>
 </html>

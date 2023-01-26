@@ -4,3 +4,19 @@ body
     color: #b4dd72f5;
     font-family: sans-serif;
 }
+.input-container{
+    margin: 12px;
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#create-product-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin:auto;
+    background-color: #ffef96;
+    color: #ff8400;
+}

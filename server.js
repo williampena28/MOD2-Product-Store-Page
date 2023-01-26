@@ -1,4 +1,5 @@
-const { json } = require('body-parser');
+const json = require('body-parser');
+const { response } = require('express');
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express();
@@ -9,7 +10,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('HOME'));
 
 //mongo database connect
-let connectionString = `mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@mongosetupcluster.i58imot.mongodb.net/?retryWrites=true&w=majority`
+let connectionString = `mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@mongosetupcluster.i58imot.mongodb.net/ProductDatabase?retryWrites=true&w=majority`
 mongoose.set('strictQuery', false);
 mongoose.connect(connectionString,
     {
@@ -21,6 +22,12 @@ mongoose.connection.once('open', () =>
     console.log('Connected to mongo');
 });
 
+//
+// const params = new Proxy(new URLSearchParams(window.location.search), 
+// {
+//     get: (searchParams, prop) => searchParams.get(prop),
+// });
+
 //display all products in the collection
 app.get('/get_products', async (req, res) =>
 {
@@ -31,13 +38,12 @@ app.get('/get_products', async (req, res) =>
 //display the specific product with the specified id
 app.get('/get_specific_product/:product_id', async (req, res) =>
 {
-    let productList = await MyProduct.find({})
-    productList.forEach((obj) =>
+    let response = await MyProduct.find({})
+    response.forEach((object) =>
     {
-        if(obj.id == req.params.product_id)
+        if(object._id == req.params.product_id)
         {
-            console.log(obj);
-            res.json(obj);
+            res.json(object);
         }
     })
 });
@@ -54,9 +60,10 @@ app.post('/create_product', async (req, res) =>
 
 // });
 
-// app.put('/update_product' (req, res) =>
+// app.put('/update_product', async (req, res) =>
 // {
-
+//     let response = await MyProduct.findById(req.body.id)
+//     res.json(response)
 // })
 
 app.listen(5000, () =>
