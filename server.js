@@ -37,6 +37,7 @@ app.get('/get_specific_product/:product_id', async (req, res) =>
     res.send(response);
 });
 
+//create product form
 app.post('/create_product', async (req, res) =>
 {
     //req.body from the front end that will create our new item
@@ -44,6 +45,7 @@ app.post('/create_product', async (req, res) =>
     res.send(newProduct);
 });
 
+//delete selected product
 app.delete('/delete_product/', async (req, res) =>
 {
     console.log("DELETE request started");
@@ -53,11 +55,19 @@ app.delete('/delete_product/', async (req, res) =>
     });
 });
 
-// app.put('/update_product', async (req, res) =>
-// {
-//     let response = await MyProduct.findById(req.body.id)
-//     res.json(response)
-// })
+app.put('/update_product/:id', async (req, res) =>
+{
+    //update the outdated product
+    let outdatedResponse = await MyProduct.findByIdAndUpdate({_id: req.params.id}, req.body).then( async () =>
+    {
+        //send the updated product back to the front end
+        let newResponse = await MyProduct.findById({_id: req.params.id}).then((product) =>
+        {
+            res.send(product);
+        });
+        
+    })
+})
 
 app.listen(5000, () =>
 {
