@@ -1,5 +1,4 @@
 const json = require('body-parser');
-const { response } = require('express');
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express();
@@ -45,10 +44,13 @@ app.post('/create_product', async (req, res) =>
     res.send(newProduct);
 });
 
-app.delete('/delete_product', async (req, res) =>
+app.delete('/delete_product/', async (req, res) =>
 {
-    let response = await MyProduct.findByIdAndDelete();
-    res.send("DELETE request Called");
+    console.log("DELETE request started");
+    let response = await MyProduct.findByIdAndDelete(req.query.productId).then((product) =>
+    {
+        res.status(200).json(product)
+    });
 });
 
 // app.put('/update_product', async (req, res) =>

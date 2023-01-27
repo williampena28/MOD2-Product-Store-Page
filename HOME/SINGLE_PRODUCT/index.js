@@ -17,3 +17,17 @@ const getSingleProduct = async () =>
 }
 
 getSingleProduct();
+
+let deleteButton = document.getElementById('delete');
+deleteButton.addEventListener('click', async () =>
+{
+    let response = await fetch(`http://localhost:5000/delete_product/?productId=${id}`, 
+    {
+        method: "DELETE",
+        headers:
+        {
+            'Content-Type': 'application/json',
+        },
+    });
+    window.location.href='../'
+})
