@@ -1,3 +1,5 @@
+let productContainer = document.getElementById('product-box');
+
 //get the id from the url
 const params = new Proxy(new URLSearchParams(window.location.search), 
 {
@@ -13,11 +15,20 @@ const getSingleProduct = async () =>
     let response = await fetch(`http://localhost:5000/get_specific_product/${id}`)
     let finalData = await response.json();
 
-    console.log(finalData.name);
+    let imageTag = document.createElement('img');
+    imageTag.src= finalData.image;
+    imageTag.width=250;
+    imageTag.height=250;
+
+    let hTag = document.createElement('h1')
+    hTag.innerHTML = `Name: ${finalData.name}<br>Price: ${finalData.price}<br>Stock: ${finalData.inventory}`;
+    productContainer.appendChild(imageTag);
+    productContainer.appendChild(hTag);
 }
 
 getSingleProduct();
 
+//Update and delete buttons
 let deleteButton = document.getElementById('delete');
 deleteButton.addEventListener('click', async () =>
 {
@@ -30,4 +41,10 @@ deleteButton.addEventListener('click', async () =>
         },
     });
     window.location.href='../'
+})
+
+let updatePageButton = document.getElementById('update-page');
+updatePageButton.addEventListener('click', async () =>
+{
+    window.location.href=`../EDIT/?idInQuery=${id}`;
 })

@@ -7,12 +7,12 @@ createProductPage.addEventListener('click', () =>
     window.location.href='./CREATE'
 })
 
-//edit product button
-let editProductPage = document.getElementById('edit-product-redirect');
-editProductPage.addEventListener('click', () =>
-{
-    window.location.href='./EDIT'
-})
+// //edit product button
+// let editProductPage = document.getElementById('edit-product-redirect');
+// editProductPage.addEventListener('click', () =>
+// {
+//     window.location.href='./EDIT'
+// })
 
 //display all of the products on the page
 let productContainerElement = document.getElementById('products');

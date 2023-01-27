@@ -7,13 +7,15 @@ createProductButton.addEventListener('click', async ()=>
     let price = document.getElementById('price-input').value;
     let inventory = document.getElementById('inventory-input').value;
     let nextDelivery = document.getElementById('next-delivery-input').value;
+    let image = document.getElementById('image-input').value;
 
     const newProduct =
     {
         name,
         price,
         inventory,
-        nextDelivery
+        nextDelivery,
+        image
     };
 
     let response = await fetch('http://localhost:5000/create_product',

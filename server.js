@@ -48,7 +48,7 @@ app.post('/create_product', async (req, res) =>
 //delete selected product
 app.delete('/delete_product/', async (req, res) =>
 {
-    console.log("DELETE request started");
+    console.log(`DELETE request for ${req.body}`);
     let response = await MyProduct.findByIdAndDelete(req.query.productId).then((product) =>
     {
         res.status(200).json(product)
