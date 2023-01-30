@@ -13,6 +13,9 @@ body
 }
 #nav-container
 {
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #383838;
     background-color: #383838;
     display: flex;
     flex-direction: row;
@@ -29,4 +32,17 @@ body
 #store-header
 {
     margin:auto;
+}
+#products
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#product-container
+{
+    background-color: #d0aa6f;
+    padding: 5%;
+    margin: 1%;
+    margin-bottom: 3%;
 }

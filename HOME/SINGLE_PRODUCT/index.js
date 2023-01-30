@@ -1,3 +1,4 @@
+//put all product content in this div
 let productContainer = document.getElementById('product-box');
 
 //get the id from the url
@@ -17,8 +18,8 @@ const getSingleProduct = async () =>
 
     let imageTag = document.createElement('img');
     imageTag.src= finalData.image;
-    imageTag.width=250;
-    imageTag.height=250;
+    imageTag.width=500;
+    imageTag.height=500;
 
     let hTag = document.createElement('h1')
     hTag.innerHTML = `Name: ${finalData.name}<br>Price: ${finalData.price}<br>Stock: ${finalData.inventory}`;
