@@ -25,6 +25,42 @@ const getSingleProduct = async () =>
     hTag.innerHTML = `Name: ${finalData.name}<br>Price: ${finalData.price}<br>Stock: ${finalData.inventory}`;
     productContainer.appendChild(imageTag);
     productContainer.appendChild(hTag);
+
+    //create buy button
+    let buyButtonContainer = document.createElement('div');
+    buyButtonContainer.id = 'buyButtonContainer';
+    let buyButtonText = document.createElement('h2');
+
+    //if stock is 0 or less, grey out the buy button
+    if(finalData.inventory > 0)
+    {
+        buyButtonText.innerHTML = "BUY";
+        buyButtonText.style.color = '#33C625';
+
+        buyButtonContainer.addEventListener('click', async () =>
+        {
+
+            let response = await fetch(`http://localhost:5000/update_product/${id}`,
+            {
+                method: "PUT",
+                headers: 
+                {
+                    'Content-Type': 'application/json',
+                },
+                body: 
+                    JSON.stringify
+                    ({
+                        name: finalData.name,
+                        price: finalData.price,
+                        inventory: finalData.inventory--,
+                        image: finalData.image
+                    })
+            })
+        })
+    }
+
+    buyButtonContainer.appendChild(buyButtonText);
+    productContainer.appendChild(buyButtonContainer);
 }
 
 getSingleProduct();
