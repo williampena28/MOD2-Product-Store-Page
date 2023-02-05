@@ -1,7 +1,7 @@
 body
 {
     background-color: #2c917f;
-    color: #b4dd72f5;
+    color: #2b7913f5;
     font-family: sans-serif;
 }
 #nav-container
@@ -28,18 +28,33 @@ body
     border-color: #1d7464;
     border-radius: 50px;
     background-color: #d0aa6f;
+    margin: 0 auto;
     padding: 10px;
     width: 500px;
-    height: 780px;
+    height: 870px;
     text-align: center;
 }
 #buyButtonContainer
 {
     display: inline-block;
     margin: 0 auto;
+    margin-bottom: 20px;
     border-style: solid;
     border-color: #33C625;
     background-color: #4DDE3F;
+    border-radius: 10px;
     width: 100px;
+    text-align: center;
+}
+#deleteProductContainer
+{
+    display: inline-block;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: #ab1b1b;
+    background-color: #e15252;
+    color: #ab1b1b;
+    border-radius: 10px;
+    width: 200px;
     text-align: center;
 }

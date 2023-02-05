@@ -45,16 +45,17 @@ app.post('/create_product', async (req, res) =>
     res.send(newProduct);
 });
 
-//delete selected product
+//delete selected product in our database
 app.delete('/delete_product/', async (req, res) =>
 {
-    console.log(`DELETE request for ${req.body}`);
+    console.log(`DELETE request sent!`);
     let response = await MyProduct.findByIdAndDelete(req.query.productId).then((product) =>
     {
         res.status(200).json(product)
     });
 });
 
+//update
 app.put('/update_product/:id', async (req, res) =>
 {
     //update the outdated product
