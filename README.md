@@ -8,10 +8,12 @@ This is a brief overview of the functionality of the pages in this project.
 ### -Homepage
 By a GET request, the homepage displays all of the products that are in the MongoDB collection. Each product has there own div container box that displays their preview image until you click on them to go to their specific pages for more detailed information
 
+Displays a create product button at the very top that redirects the user to a form page to create a new product
+
 ### -Create Product Page
 By a POST request, this page makes it so that you are able to create products to be shown on the homepage.
 
-How it works is you are given a set of inputs to give to the product you are creating. I.e, the name, price, how much is there available, etc.
+How it works is you are given a set of inputs to give to the product you are creating. I.e, the name, price, stock, etc.
 
 The product then gets submitted to the collection on MongoDB where the data is stored.
 
