@@ -24,7 +24,7 @@ const getSingleProduct = async () =>
     imageTag.height=500;
 
     let hTag = document.createElement('h1')
-    hTag.innerHTML = `${finalData.name}<br>Price: $${finalData.price}<br>Stock: ${finalData.stock}`;
+    hTag.innerHTML = `${finalData.name}<br>${finalData.desc}<br>Price: $${finalData.price}<br>Stock: ${finalData.stock}`;
     productContainer.appendChild(imageTag);
     productContainer.appendChild(hTag);
 

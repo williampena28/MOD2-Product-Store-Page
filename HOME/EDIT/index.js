@@ -13,16 +13,16 @@ updateProductButton.addEventListener('click', async ()=>
     
     let name = document.getElementById('name-input').value;
     let price = document.getElementById('price-input').value;
-    let inventory = document.getElementById('inventory-input').value;
-    let nextDelivery = document.getElementById('next-delivery-input').value;
+    let stock = document.getElementById('inventory-input').value;
+    let desc = document.getElementById('next-delivery-input').value;
     let image = document.getElementById('image-input').value;
 
     const updatedProduct =
     {
         name,
         price,
-        inventory,
-        nextDelivery,
+        stock,
+        desc,
         image
     }
 
